@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>API Simulada - Gestão</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+
+    <!-- Seção: Gestão de Usuários -->
+    <section class="card">
+      <h1>Gestão de Usuários</h1>
+
+      <h2>Cadastrar Usuário</h2>
+      <div class="grid">
+        <input type="text" id="nome" placeholder="Nome" />
+        <input type="email" id="email" placeholder="Email" />
+        <button id="btnCadastrarUsuario">Cadastrar</button>
+      </div>
+
+      <h2>Usuários</h2>
+      <div id="listaUsuarios"></div>
+    </section>
+
+    <!-- Seção: Funcionários & Empresa -->
+    <section class="card">
+      <div class="title-row">
+        <h1>Funcionários & Empresa</h1>
+        <button id="btnAbrirAddFuncionario">Adicionar Funcionário</button>
+      </div>
+      <div id="listaFuncionarios"></div>
+    </section>
+  </main>
+
+  <!-- Overlay animações (loading -> concluído) -->
+  <div class="overlay" id="overlay">
+    <div id="overlay-content"></div>
+  </div>
+
+  <!-- MODAIS -->
+
+  <!-- Modal: Alocar Empresa para Usuário -->
+  <div class="modal" id="empresaModal">
+    <div class="modal-content">
+      <h3>Alocar Empresa</h3>
+      <form id="empresaForm">
+        <label for="empresaNome">Nome da Empresa</label>
+        <input type="text" id="empresaNome" required />
+
+        <label for="empresaCnpj">CNPJ</label>
+        <input type="text" id="empresaCnpj" required />
+
+        <div class="modal-actions">
+          <button type="submit" class="btn confirmar">Salvar</button>
+          <button type="button" class="btn cancelar" data-close="#empresaModal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Editar Usuário -->
+  <div class="modal" id="editarUsuarioModal">
+    <div class="modal-content">
+      <h3>Editar Usuário</h3>
+      <input type="text" id="editUserNome" placeholder="Nome" />
+      <input type="email" id="editUserEmail" placeholder="Email" />
+      <div class="modal-actions">
+        <button id="btnSalvarEditUsuario" class="btn confirmar">Salvar</button>
+        <button type="button" class="btn cancelar" data-close="#editarUsuarioModal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Adicionar Funcionário -->
+  <div class="modal" id="addFuncionarioModal">
+    <div class="modal-content">
+      <h3>Adicionar Funcionário</h3>
+      <input type="text" id="addNome" placeholder="Nome do Funcionário" />
+      <input type="email" id="addEmail" placeholder="Email" />
+      <input type="text" id="addCpf" placeholder="CPF" />
+      <input type="text" id="addTelefone" placeholder="Telefone" />
+      <input type="text" id="addEmpresa" placeholder="Nome da Empresa" />
+      <input type="text" id="addCargo" placeholder="Cargo" />
+      <div class="modal-actions">
+        <button id="btnSalvarNovoFuncionario" class="btn confirmar">Salvar</button>
+        <button type="button" class="btn cancelar" data-close="#addFuncionarioModal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Editar Funcionário -->
+  <div class="modal" id="editarFuncionarioModal">
+    <div class="modal-content">
+      <h3>Editar Funcionário</h3>
+      <input type="text" id="editNome" placeholder="Nome" />
+      <input type="email" id="editEmail" placeholder="Email" />
+      <input type="text" id="editCpf" placeholder="CPF" />
+      <input type="text" id="editTelefone" placeholder="Telefone" />
+      <input type="text" id="editEmpresa" placeholder="Empresa" />
+      <input type="text" id="editCargo" placeholder="Cargo" />
+      <div class="modal-actions">
+        <button id="btnSalvarEditFuncionario" class="btn confirmar">Salvar</button>
+        <button type="button" class="btn cancelar" data-close="#editarFuncionarioModal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
